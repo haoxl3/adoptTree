@@ -1,0 +1,14 @@
+<template>
+    <view class="container">
+        adopt
+    </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Adopt extends wepy.page {
+    
+} 
+</script>
+<style lang="less">
+
+</style>

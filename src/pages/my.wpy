@@ -1,0 +1,14 @@
+<template>
+    <view class="container">
+        my
+    </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class My extends wepy.page {
+    
+} 
+</script>
+<style lang="less">
+
+</style>
