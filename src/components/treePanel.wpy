@@ -1,5 +1,6 @@
 <template>
     <view class="tree-panel">
+        <mytitle :panelTitle="panelTitle"></mytitle>
         <view class="tree-box">
             <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"/>
             <view>
@@ -22,8 +23,14 @@
 </template>
 <script>
 import wepy from 'wepy'
+import myTitle from './myTitle'
 export default class tree extends wepy.component {
-    
+    data = {
+        panelTitle: '树木简介'
+    }
+    components = {
+        mytitle: myTitle
+    } 
 }
 </script>
 <style lang="less">
