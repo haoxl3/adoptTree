@@ -1,14 +1,106 @@
 <template>
     <view class="container">
-        home
+        <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="#fff" indicator-active-color="#60BA4E">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="nav">
+            <view class="nav-item">
+                <view class="nav-circle nav-adopt">
+                    <i class="iconfont icon-love"></i>
+                </view>
+                <text>领养</text>
+            </view>
+            <view class="nav-item">
+                <view class="nav-circle nav-rank">
+                    <i class="iconfont icon-rank"></i>
+                </view>
+                <text>排行榜</text>
+            </view>
+            <view class="nav-item">
+                <view class="nav-circle nav-activity">
+                    <i class="iconfont icon-activity"></i>
+                </view>
+                <text>活动</text>
+            </view>
+            <view class="nav-item">
+                <view class="nav-circle nav-in">
+                    <i class="iconfont icon-tree"></i>
+                </view>
+                <text>新入驻</text>
+            </view>
+        </view>
+        <view class="content">
+            
+        </view>
     </view>
 </template>
 <script>
 import wepy from 'wepy'
 export default class Home extends wepy.page {
     
+    data = {
+        imgUrls: [
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+        ],
+        indicatorDots: true,
+        autoplay: true,
+        interval: 3000,
+        duration: 1000
+    };
 } 
 </script>
 <style lang="less">
-
+.swiper{
+    width: 100%;
+    height: 400rpx;
+}
+.swiper image{
+    width: 100%;
+    height: 100%;
+}
+.nav{
+    width: 100%;
+    border-bottom: 6px solid #EEEEEF;
+    justify-content: center;
+    display: flex;
+    padding: 30rpx 0;
+    .nav-item{
+        flex: 1;
+        text-align: center;
+        position: relative;
+        .nav-circle{
+            width: 80rpx;
+            height: 80rpx;
+            line-height: 80rpx;
+            text-align: center;
+            color: #fff;
+            border-radius: 50%;
+            margin: 0 auto 10rpx;
+            i{
+                font-size: 50rpx;
+            }
+        }
+        text{
+            font-size: 28rpx;
+        }
+    }
+    .nav-adopt{
+        background-color: #E8827E;
+    }
+    .nav-rank{
+        background-color: #60BA4E;
+    }
+    .nav-activity{
+        background-color: #EEA95E;
+    }
+    .nav-in{
+        background-color: #64BAF3;
+    }
+}
 </style>
