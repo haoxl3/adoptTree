@@ -6,6 +6,13 @@
                 <image src="{{item.img}}"/>
                 <view class="activity-name"><i class="iconfont icon-balloon" style="color: {{ballColor[index%ballColor.length]}}"></i>{{item.name}}</view>
                 <view class="activity-address"><i class="iconfont icon-address"></i>{{item.address}}</view>
+                <view class="flex-box">
+                    <view class="flex-item activity-num">参与人数：{{item.num}}</view>
+                    <view class="flex-item activity-money">
+                        <text wx:if="{{item.money === 0}}">门票：免费</text>
+                        <text wx:else>门票：￥{{item.money}}</text>
+                    </view>
+                </view>
             </view>
         </repeat>
     </view>
@@ -51,13 +58,12 @@ export default class activity extends wepy.component {
             height: 300rpx;
         }
         .activity-name{
-            font-size: 24rpx;
-            line-height: 40rpx;
+            font-size: 28rpx;
         }
         .activity-address{
             color: #666;
             font-size: 24rpx;
-            line-height: 40rpx;
+            margin-top: 6px;
         }
         .iconfont{
             font-size: 14px;
@@ -66,6 +72,22 @@ export default class activity extends wepy.component {
         }
         .icon-balloon{
             font-size: 16px;
+        }
+        .flex-box{
+            display: flex;
+            margin-top: 6px;
+            .flex-item{
+                flex: 1;
+                font-size: 22rpx;
+                line-height: 40rpx;
+                color: #888;
+            }
+            .activity-money{
+                text-align: right;
+                text{
+                    color: #888;
+                }
+            }
         }
     }
 }

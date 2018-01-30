@@ -59,15 +59,21 @@ export default class Home extends wepy.page {
             {
                 img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
                 name: '植树节',
-                address: '北京市朝阳区地坛公园'
+                address: '北京市朝阳区地坛公园',
+                num: 20,
+                money: 10
             },{
                 img: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
                 name: '儿童节野炊',
-                address: '北京颐和园公园'
+                address: '北京颐和园公园',
+                num: 100,
+                money: 0
             },{
                 img: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
                 name: '圣诞节场地装扮party',
-                address: '北京市东城区天坛公园'
+                address: '北京市东城区天坛公园',
+                num: 36,
+                money: 20
             }
         ]
     }
