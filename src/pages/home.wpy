@@ -1,7 +1,7 @@
 <template>
     <view class="container">
         <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="#fff" indicator-active-color="#60BA4E">
-            <block wx:for="{{imgUrls}}">
+            <block wx:for="{{imgUrls}}" wx:key="key">
                 <swiper-item>
                     <image src="{{item}}" class="slide-image"/>
                 </swiper-item>
@@ -34,14 +34,14 @@
             </view>
         </view>
         <view class="content">
-            
+            <treePanel></treePanel>
         </view>
     </view>
 </template>
 <script>
 import wepy from 'wepy'
+import treePanel from '../components/treePanel'
 export default class Home extends wepy.page {
-    
     data = {
         imgUrls: [
         'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -52,7 +52,10 @@ export default class Home extends wepy.page {
         autoplay: true,
         interval: 3000,
         duration: 1000
-    };
+    }
+    components = {
+        treePanel: treePanel
+    }
 } 
 </script>
 <style lang="less">

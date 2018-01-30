@@ -1,0 +1,14 @@
+<template>
+    <view>{{test}}</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class tree extends wepy.component {
+    data = {
+        test: 'treePanel'
+    }
+}
+</script>
+<style lang="less">
+
+</style>
