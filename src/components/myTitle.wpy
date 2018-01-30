@@ -1,0 +1,29 @@
+<template>
+    <view class="activity-title"><i class="iconfont icon-name"></i>{{panelTitle}}</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class treeTitle extends wepy.component {
+    props = {
+        panelTitle: {
+            type: String,
+            defalut: ''
+        }
+    }
+}
+</script>
+<style lang="less">
+.activity-title{
+    background-color: #fff;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 4px;
+    font-size: 28rpx;
+    border-bottom: 6px solid #EEEEEF;
+    i{
+        color: #60BA4E;
+        margin-right: 4px;
+    }
+}
+</style>
+

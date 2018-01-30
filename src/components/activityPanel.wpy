@@ -1,6 +1,6 @@
 <template>
     <view class="activity-panel">
-        <view class="activity-title"><i class="iconfont icon-name"></i>活动推荐</view>
+        <mytitle :panelTitle="panelTitle"></mytitle>
         <repeat for="{{activity}}" item="item" key="index">
             <view class="activity-box">
                 <image src="{{item.img}}"/>
@@ -19,9 +19,12 @@
 </template>
 <script>
 import wepy from 'wepy'
+import myTitle from './myTitle'
+
 export default class activity extends wepy.component {
     data = {
-        ballColor: ['#E8827E','#9A32CD','#006400','#CD0000','#EEEE00']
+        ballColor: ['#E8827E','#9A32CD','#006400','#CD0000','#EEEE00'],
+        panelTitle: '活动推荐'
     } 
     props = {
         activity: {
@@ -29,24 +32,16 @@ export default class activity extends wepy.component {
             default: []
         }
     }
+    components = {
+        mytitle: myTitle
+    }
 }    
 </script>
 <style lang="less">
 .activity-panel{
     background-color: #EEEEEF;
     border-bottom: 10px solid #EEEEEF;
-    .activity-title{
-        background-color: #fff;
-        height: 30px;
-        line-height: 30px;
-        padding: 0 4px;
-        font-size: 28rpx;
-        border-bottom: 6px solid #EEEEEF;
-        i{
-            color: #60BA4E;
-            margin-right: 4px;
-        }
-    }
+    
     .activity-box{
         width: 100%;
         background-color: #fff;
