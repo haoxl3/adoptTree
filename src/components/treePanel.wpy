@@ -1,23 +1,31 @@
 <template>
     <view class="tree-panel">
         <mytitle :panelTitle="panelTitle"></mytitle>
-        <view class="tree-box">
-            <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"/>
-            <view>
-                <text>北京市朝阳区地坛公园</text>
-            </view>
-        </view>
-        <view class="tree-box">
-            <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg"/>
-            <view>
-                <text>北京市朝阳区地坛公园</text>
-            </view>
-        </view>
-        <view class="tree-box">
-            <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"/>
-            <view>
-                <text>北京市朝阳区地坛公园</text>
-            </view>
+        <view class="free-WaterfallFlow">
+            <block>
+                <view class="flex-wrap" wx:for="{{images}}" wx:key='{{item.src}}' wx:if="{{item.id%2!=''}}">
+                    <image mode="widthFix" src="{{item.src}}"/>
+                    <view class="tree-name">{{item.name}}</view>
+                    <view class="tree-address">{{item.address}}</view>
+                    <view class="flex-box">
+                        <view class="flex-item">树龄:{{item.age}}年</view>
+                        <view class="flex-item tree-price">￥{{item.price}}</view>
+                        <view class="flex-item tree-pre">￥{{item.preferential}}</view>
+                    </view>
+                </view>
+            </block>
+            <block>
+                <view class="flex-wrap" wx:for="{{images}}" wx:key='{{item.src}}' wx:if="{{item.id%2==''}}">
+                    <image mode="widthFix" src="{{item.src}}"/>
+                    <view class="tree-name">{{item.name}}</view>
+                    <view class="tree-address">{{item.address}}</view>
+                    <view class="flex-box">
+                        <view class="flex-item">树龄:{{item.age}}年</view>
+                        <view class="flex-item tree-price">￥{{item.price}}</view>
+                        <view class="flex-item tree-pre">￥{{item.preferential}}</view>
+                    </view>
+                </view>
+            </block>
         </view>
     </view>
 </template>
@@ -26,15 +34,162 @@ import wepy from 'wepy'
 import myTitle from './myTitle'
 export default class tree extends wepy.component {
     data = {
-        panelTitle: '树木简介'
+        panelTitle: '树木简介',
+        images:[
+            { 
+                id:'1',
+                src:'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name:'合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '100',
+                price: '199/年',
+                preferential: '39/月'
+            }, {
+                id: '2',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '35',
+                price: '50/年',
+                preferential: '5/月'
+            }, {
+                id: '3',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '123',
+                price: '88/年',
+                preferential: '45/月'
+            }, {
+                id: '4',
+                src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '80',
+                price: '80/年',
+                preferential: '40/月'
+            }, {
+                id: '5',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '99',
+                price: '99/年',
+                preferential: '50/月'
+            }, {
+                id: '6',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '79',
+                price: '60/年',
+                preferential: '30/月'
+            }, {
+                id: '7',
+                src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '92',
+                price: '80/年',
+                preferential: '20/月'
+            }, {
+                id: '8',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '300',
+                price: '299/年',
+                preferential: '99/月'
+            }, {
+                id: '9',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '58',
+                price: '60/年',
+                preferential: '30/月'
+            }, {
+                id: '10',
+                src: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '81',
+                price: '90/年',
+                preferential: '20/月'
+            }, {
+                id: '11',
+                src: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '20',
+                price: '60/年',
+                preferential: '30/月'
+            }
+        ]
     }
     components = {
         mytitle: myTitle
-    } 
+    }
 }
 </script>
 <style lang="less">
 .tree-panel{
     background-color: #EEEEEF;
+    .content_list{
+        position: relative;
+    }
+    .list{
+        width: 350rpx;
+        min-height: 200rpx;
+    }
+    .img_item{
+        width: 100%;
+    }
+}
+.free-WaterfallFlow{
+  width:100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  column-count:2;/*column-count 属性规定元素应该被分隔的列数：*/
+}
+.free-WaterfallFlow {
+    .flex-wrap{
+        display: inline-block;
+        width:100%;
+        margin-bottom:5%;
+        padding:2%;
+        box-sizing: border-box;
+        /*margin-right:2%;
+        box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);*/
+        background-color: #fff;
+        image{
+            width:100%;
+            margin:0 auto;
+        }
+        .tree-name,
+        .tree-address{
+            font-size: 24rpx;
+            color: #666;
+        }
+        .tree-address{
+            margin: 4px 0;
+        }
+        .flex-box{
+            display: flex;
+            .flex-item{
+                flex: 1;
+                font-size: 20rpx;
+                color: #666;
+            }
+            .tree-price{
+                color: #E8827E;
+                text-align: center;
+            }
+            .tree-pre{
+                color: #60BA4E;
+                text-align: right;
+            }
+        }
+    }
 }
 </style>

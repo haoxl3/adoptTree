@@ -20,28 +20,29 @@ export default class extends wepy.app {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#60BA4E',
       navigationBarTitleText: '领养树',
-      navigationBarTextStyle: '#fff'
+      navigationBarTextStyle: '#fff',
+      backgroundColor: '#EFEFEF'
     },
     "tabBar": {
       "color": "#999999",
-      "selectedColor": "#ff6a3c",
+      "selectedColor": "#60BA4E",
       "backgroundColor": "#ffffff",
       "borderStyle": "black",
       "list": [{
         "pagePath": "pages/home",
         "text": "首页",
-        "iconPath": "images/icon_home.png",
-        "selectedIconPath": "images/icon_home_active.png"
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png"
       }, {
         "pagePath": "pages/adopt",
         "text": "领养",
-        "iconPath": "images/icon_classify.png",
-        "selectedIconPath": "images/icon_classify_active.png"
+        "iconPath": "images/tree.png",
+        "selectedIconPath": "images/tree_active.png"
       },{
         "pagePath": "pages/my",
         "text": "我的",
-        "iconPath": "images/icon_info.png",
-        "selectedIconPath": "images/icon_info_active.png"
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_active.png"
       }]
     }
   }

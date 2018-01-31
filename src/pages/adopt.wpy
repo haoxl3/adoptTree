@@ -1,6 +1,23 @@
 <template>
     <view class="container">
-        adopt
+        <view>领养清单</view>
+        <view>
+            <view>
+                <label>姓名：</label>
+                <input placeholder="请输入..." auto-focus/>
+            </view>
+            <view>
+                <label>性别：</label>
+                <radio-group class="radio-group" bindchange="radioChange">
+                    <label class="radio">
+                        <radio value="boy" checked="" />男
+                    </label>
+                    <label class="radio">
+                        <radio value="girl" checked="" />女
+                    </label>
+                </radio-group>
+            </view>
+        </view>
     </view>
 </template>
 <script>
@@ -10,5 +27,10 @@ export default class Adopt extends wepy.page {
 } 
 </script>
 <style lang="less">
-
+body{
+    background-color: #EEEEEF;
+}
+.container{
+    padding: 10px;
+}
 </style>
