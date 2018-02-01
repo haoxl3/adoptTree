@@ -1,0 +1,31 @@
+<template>
+    <view>
+        <text>树木详情</text>
+        <button type="primary" bindtap="adoptTree">领养</button>
+    </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class treeDetail extends wepy.page {
+    config = {
+        navigationBarTitleText: '领养树',
+    }
+    data = {
+        id: ''
+    }
+    methods = {
+        adoptTree() {
+            wx.reLaunch({
+                url: '/pages/midTree?id=' + this.id
+            })
+        }
+    }
+    onLoad(option){
+        this.id = option.id;
+        this.$apply();
+    }
+}
+</script>
+<style lang="less">
+</style>

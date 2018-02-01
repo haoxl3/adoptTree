@@ -1,0 +1,27 @@
+<template>
+    <view>
+        <adoptform></adoptform>
+    </view>
+</template>
+<script>
+import wepy from 'wepy';
+import adoptForm from '../components/adoptForm';
+
+export default class midTree extends wepy.page {
+    config = {
+        navigationBarTitleText: '领养树',
+    }
+    data = {
+        
+    }
+    components = {
+        adoptform: adoptForm
+    }
+    onLoad(option){
+        console.log('传递来的id')
+        console.log(option)
+    }
+}
+</script>
+<style lang="less">
+</style>

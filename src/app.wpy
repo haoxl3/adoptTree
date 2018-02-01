@@ -24,6 +24,8 @@ export default class extends wepy.app {
       'pages/tree',
       'pages/activity',
       'pages/acDetail',
+      'pages/treeDetail',
+      'pages/midTree'
     ],
     window: {
       backgroundTextStyle: 'light',
