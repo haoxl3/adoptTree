@@ -28,7 +28,7 @@
             </view>
             <view class="nav-item">
                 <view class="nav-circle nav-in">
-                    <i class="iconfont icon-tree"></i>
+                    <i class="iconfont icon-big-tree"></i>
                 </view>
                 <text>新入驻</text>
             </view>
