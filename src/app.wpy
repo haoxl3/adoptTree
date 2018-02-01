@@ -3,6 +3,9 @@
 // @import "./styles/icon";
 @import "./styles/icon";
 @import "./styles/style";
+page{
+  background-color: #EEEEEF;
+}
 </style>
 
 <script>

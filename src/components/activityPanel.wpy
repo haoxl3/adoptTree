@@ -39,9 +39,7 @@ export default class activity extends wepy.component {
 </script>
 <style lang="less">
 .activity-panel{
-    background-color: #EEEEEF;
-    border-bottom: 10px solid #EEEEEF;
-    
+    margin-bottom: 10px;
     .activity-box{
         width: 100%;
         background-color: #fff;

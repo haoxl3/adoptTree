@@ -94,10 +94,11 @@ export default class Home extends wepy.page {
 }
 .nav{
     width: 100%;
-    border-bottom: 10px solid #EEEEEF;
+    margin-bottom: 10px;
     justify-content: center;
     display: flex;
     padding: 30rpx 0;
+    background-color: #fff;
     .nav-item{
         flex: 1;
         text-align: center;

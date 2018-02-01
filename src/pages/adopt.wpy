@@ -158,6 +158,7 @@ export default class Adopt extends wepy.page {
         border: 1px solid #eee;
         border-radius: 3px;
         padding: 0 14px;
+        background-color: #fff;
         margin-bottom: 14px;
         .form-title{
             text-align: center;

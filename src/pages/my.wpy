@@ -69,7 +69,7 @@ export default class My extends wepy.page {
     height:250rpx;
     background-color: #60BA4E;
     position: relative;
-    border-bottom: 10px solid #EEEEEF;
+    margin-bottom: 10px;
     .header-box{
         position: absolute;
         width: 100rpx;
@@ -92,6 +92,7 @@ export default class My extends wepy.page {
     }
 }
 .menu-container{
+    background-color: #fff;
     .menu-item{
         border-bottom: 1px solid #eee;
         padding: 10px;

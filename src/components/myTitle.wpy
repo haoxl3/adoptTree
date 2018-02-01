@@ -19,7 +19,7 @@ export default class treeTitle extends wepy.component {
     line-height: 30px;
     padding: 0 4px;
     font-size: 28rpx;
-    border-bottom: 6px solid #EEEEEF;
+    margin-bottom: 6px;
     i{
         color: #60BA4E;
         margin-right: 4px;
