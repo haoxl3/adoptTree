@@ -9,7 +9,7 @@
         </swiper>
         <view class="nav">
             <view class="nav-item">
-                <view class="nav-circle nav-adopt">
+                <view class="nav-circle nav-adopt" bindtap="willGo">
                     <i class="iconfont icon-love"></i>
                 </view>
                 <text>领养</text>
@@ -77,6 +77,13 @@ export default class Home extends wepy.page {
             }
         ]
     }
+    methods = {
+        willGo() {
+            wx.reLaunch({
+                url: '/pages/adopt'
+            })
+        }
+    }
     components = {
         treePanel: treePanel,
         activityPanel: activityPanel
@@ -131,5 +138,9 @@ export default class Home extends wepy.page {
     .nav-in{
         background-color: #64BAF3;
     }
+}
+.navigator-hover{
+    background: none;
+    opacity: 1;
 }
 </style>
