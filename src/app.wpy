@@ -15,6 +15,7 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      
       'pages/home',
       'pages/my',
       'pages/adopt',
@@ -22,6 +23,7 @@ export default class extends wepy.app {
       'pages/rank',
       'pages/tree',
       'pages/activity',
+      'pages/acDetail',
     ],
     window: {
       backgroundTextStyle: 'light',

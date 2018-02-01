@@ -1,32 +1,20 @@
 <template>
     <view class="container">
-        <repeat for="{{activities}}" item="item" key="index">
-            <navigator url="/pages/acDetail?id={{item.id}}">
-                <view class="activity-box flex-box">
-                    <view class="img-box" style="background-image:url('{{item.url}}')"></view>
-                    <view class="flex-right">
-                        <view class="activity-name"><i class="iconfont icon-balloon" style="color: {{ballColor[index%ballColor.length]}}"></i>{{item.name}}</view>
-                        <view class="activity-address"><i class="iconfont icon-address"></i>{{item.address}}</view>
-                        <view class="activity-info"><i class="iconfont icon-recentnewsfill"></i>{{item.intro}}</view>
-                        <view class="activity-bottom clearfix">
-                            <view class="float-left"><i class="iconfont icon-people"></i>{{item.total}}人</view>
-                            <view class="float-right time-box"><i class="iconfont icon-time"></i>{{item.time}}</view>
-                        </view>
-                    </view>
-                </view>
-            </navigator>
-        </repeat>
+        <view class="activity-container">
+            <image src="{{activity.url}}"/>
+            <view><text>活动：</text>{{activity.name}}</view>
+            <view><text>简介：</text>{{activity.intro}}</view>
+            <view><text>时间：</text>{{activity.time}}</view>
+            <view><text>已报名：</text>{{activity.total}}人</view>
+            <view><text>地址：</text>{{activity.address}}</view>
+        </view>
+        <button type="primary">报名</button>
     </view>
 </template>
 <script>
 import wepy from 'wepy';
-
-export default class Activity extends wepy.page {
-    config = {
-        navigationBarTitleText: '活动',
-    }
+export default class acDetail extends wepy.page{
     data = {
-        ballColor: ['#E8827E','#9A32CD','#006400','#CD0000','#EEEE00'],
         activities: [
             {
                 id: 0,
@@ -85,95 +73,37 @@ export default class Activity extends wepy.page {
                 total: 20,
                 time: '2018.5.1~2018.10.30'
             },
-        ]
+        ],
+        activity: {}
     }
-}
+    onLoad(option) {
+        this.activity = this.activities[option.id];
+        this.$apply();
+    }
+}  
 </script>
 <style lang="less" scoped>
 .container{
-    padding: 10px 4px;
-    .activity-box{
-        margin-bottom: 10px;
-        border-radius: 3px;
-        padding: 10rpx;
-        font-size: 28rpx;
-        position: relative;
-    }
-    .img-box{
-        width: 200rpx;
-        height: 200rpx;
-        border-radius: 3px;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .flex-box{
+    .activity-container{
         background-color: #fff;
-        display: flex;
-    }
-    .flex-right{
-        flex: 1;
-        padding-left: 6rpx;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: 28rpx;
+        line-height: 40rpx;
         view{
             color: #999;
+            text{
+                color: #666;
+            }
         }
-        i{
-            margin-right: 6rpx;
-        }
-    }
-    .activity-name,
-    .activity-address,
-    .activity-info,
-    .activity-bottom{
-        font-size: 24rpx;
-    }
-    .activity-name,
-    .activity-address{
-        overflow : hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-    .activity-info{
-        overflow : hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-    .activity-bottom{
-        margin-top: 2px;
-        view{
-            font-size: 20rpx;
-            color: #999;
-        }
-        .time-box{
-            text-align: right;
+        image{
+            width: 100%;
         }
     }
-    .icon-balloon{
-        color: pink;
-    }
-    .icon-address{
-        color: #ccc;
-    }
-    .icon-recentnewsfill{
-        color: #EEA95E;
-    }
-    .icon-people{
-        color: #E8827E;
-    }
-    .icon-time{
-        color: #60BA4E;
-    }
-    .float-left{
-        float: left;
-    }
-    .float-right{
-        float: right;
-    }
-    .clearfix{
-        overflow: hidden;
+    button{
+        width: 80%;
+        margin: 20px auto;
+        font-size: 28rpx;
     }
 }
 </style>
