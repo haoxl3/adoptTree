@@ -1,12 +1,12 @@
 <template>
-    <view>more tree</view>
+    <view>科谱树木知识点</view>
 </template>
 <script>
 import wepy from 'wepy';
 
 export default class myTree extends wepy.page {
     config = {
-        navigationBarTitleText: '新入驻',
+        navigationBarTitleText: '科谱',
     }
     data = {
         
