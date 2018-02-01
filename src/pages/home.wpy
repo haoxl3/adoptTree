@@ -63,23 +63,32 @@ export default class Home extends wepy.page {
         duration: 1000,
         activity: [
             {
-                img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                id: 0,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
                 name: '植树节',
                 address: '北京市朝阳区地坛公园',
-                num: 20,
-                money: 10
+                intro:'树木是阻挡风沙的卫士，如果不想让世界成为沙漠，那么就植树吧!',
+                total: 305,
+                price: 10,
+                time: '2018.3.12'
             },{
-                img: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                id: 1,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
                 name: '儿童节野炊',
                 address: '北京颐和园公园',
-                num: 100,
-                money: 0
+                intro:'挣脱喧嚣入山水,方知野炊味最美。火枫野营伴君行,游遍天下不思归。',
+                total: 288,
+                price: 0,
+                time: '2018.6.1'
             },{
-                img: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                id: 2,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
                 name: '圣诞节场地装扮party',
                 address: '北京市东城区天坛公园',
-                num: 36,
-                money: 20
+                intro:'雪花盛开着温暖，人间弥漫着蜜甜，烟筒袅袅出炊烟，火炉暖暖着慵懒，花树散发着芬芳，顽童讨要着果糖，驯鹿跑出来健康，圣诞洋溢着吉祥。',
+                total: 256,
+                price: 20,
+                time: '2018.12.25'
             }
         ]
     }
