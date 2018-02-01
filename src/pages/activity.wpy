@@ -1,14 +1,170 @@
 <template>
-    <view>activity</view>
+    <view class="container">
+        <repeat for="{{activities}}" item="item" key="index">
+            <view class="activity-box flex-box">
+                <view class="img-box" style="background-image:url('{{item.url}}')"></view>
+                <view class="flex-right">
+                    <view class="activity-name"><i class="iconfont icon-balloon" style="color: {{ballColor[index%ballColor.length]}}"></i>{{item.name}}</view>
+                    <view class="activity-address"><i class="iconfont icon-address"></i>{{item.address}}</view>
+                    <view class="activity-info"><i class="iconfont icon-recentnewsfill"></i>{{item.intro}}</view>
+                    <view class="activity-bottom clearfix">
+                        <view class="float-left"><i class="iconfont icon-people"></i>{{item.total}}人</view>
+                        <view class="float-right time-box"><i class="iconfont icon-time"></i>{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+        </repeat>
+    </view>
 </template>
 <script>
 import wepy from 'wepy';
 
 export default class Activity extends wepy.page {
+    config = {
+        navigationBarTitleText: '活动',
+    }
     data = {
-        
+        ballColor: ['#E8827E','#9A32CD','#006400','#CD0000','#EEEE00'],
+        activities: [
+            {
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '植树节',
+                address: '北京市朝阳区地坛公园',
+                intro:'树木是阻挡风沙的卫士，如果不想让世界成为沙漠，那么就植树吧!',
+                total: 305,
+                time: '2018.3.12'
+            },{
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '儿童节野炊',
+                address: '北京颐和园公园',
+                intro:'挣脱喧嚣入山水,方知野炊味最美。火枫野营伴君行,游遍天下不思归。',
+                total: 288,
+                time: '2018.6.1'
+            },{
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '圣诞节场地装扮party',
+                address: '北京市东城区天坛公园',
+                intro:'雪花盛开着温暖，人间弥漫着蜜甜，烟筒袅袅出炊烟，火炉暖暖着慵懒，花树散发着芬芳，顽童讨要着果糖，驯鹿跑出来健康，圣诞洋溢着吉祥。',
+                total: 256,
+                time: '2018.12.25'
+            },{
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: 'DIY森林灯光节',
+                address: '北京陶然亭公园',
+                intro:'此次光雕艺术展，占地100余亩，使用40万只灯泡、3万米左右的LED光带搭建成“时光隧道”、“超凡视觉”、“空中水母”、“水晶鞋”、“大圣归来”等26组大型光雕作品，极富中国风格，极具民族风情，光影四射的七彩华丽灯艺雕塑如梦如幻，璀璨夺目。',
+                total: 120,
+                time: '2018.4.29'
+            },{
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '爱护地球朗读赛',
+                address: '北京景山公园',
+                intro:'树给我们制造更多清新的氧气。树是我们的朋友。我希望大家都能爱护大树。树是我们的朋友。我希望大树和我们一起快乐成长。树是我们的朋友。我希望大家一起来种更多的树。树是我们的朋友。我希望大树可以给我们更多阴凉。',
+                total: 109,
+                time: '2018.4.22'
+            },{
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '摄影爱好日',
+                address: '北京玉渊潭公园',
+                intro:'窗外的那棵树，是一棵饱经风沙的树;窗外的那棵树，是一棵不显眼的树;窗外的那棵树，是一棵努力汲取营养的书;窗外的那棵树，是一棵为希望而成长的树;窗外的那棵树，最终成为一棵生机勃勃，枝繁叶茂的树!',
+                total: 20,
+                time: '2018.8.19'
+            },{
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: 'DIY婚纱摄影场景',
+                address: '北京植物园',
+                intro:'是不是想要自己的婚纱照别居一格？是不是对千篇一律的婚纱场地厌烦？是不是梦想自己是森林中自由起舞的花仙子？一起来DIY自己的婚纱外景场地吧！',
+                total: 20,
+                time: '2018.5.1~2018.10.30'
+            },
+        ]
     }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
+.container{
+    padding: 10px 4px;
+    .activity-box{
+        margin-bottom: 10px;
+        border-radius: 3px;
+        padding: 10rpx;
+        font-size: 28rpx;
+        position: relative;
+    }
+    .img-box{
+        width: 200rpx;
+        height: 200rpx;
+        border-radius: 3px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .flex-box{
+        background-color: #fff;
+        display: flex;
+    }
+    .flex-right{
+        flex: 1;
+        padding-left: 6rpx;
+        view{
+            color: #999;
+        }
+        i{
+            margin-right: 6rpx;
+        }
+    }
+    .activity-name,
+    .activity-address,
+    .activity-info,
+    .activity-bottom{
+        font-size: 24rpx;
+    }
+    .activity-name,
+    .activity-address{
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .activity-info{
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .activity-bottom{
+        margin-top: 2px;
+        view{
+            font-size: 20rpx;
+            color: #999;
+        }
+        .time-box{
+            text-align: right;
+        }
+    }
+    .icon-balloon{
+        color: pink;
+    }
+    .icon-address{
+        color: #ccc;
+    }
+    .icon-recentnewsfill{
+        color: #EEA95E;
+    }
+    .icon-people{
+        color: #E8827E;
+    }
+    .icon-time{
+        color: #60BA4E;
+    }
+    .float-left{
+        float: left;
+    }
+    .float-right{
+        float: right;
+    }
+    .clearfix{
+        overflow: hidden;
+    }
+}
 </style>

@@ -46,6 +46,9 @@
 <script>
 import wepy from 'wepy'
 export default class My extends wepy.page {
+    config = {
+        navigationBarTitleText: '我的',
+    }
     data = {
         userInfo:{}
     }

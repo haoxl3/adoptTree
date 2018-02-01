@@ -37,7 +37,7 @@ export default class activityPanel extends wepy.component {
     }
 }    
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .activity-panel{
     margin-bottom: 10px;
     .activity-box{

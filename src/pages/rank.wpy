@@ -5,6 +5,9 @@
 import wepy from 'wepy';
 
 export default class Rank extends wepy.page {
+    config = {
+        navigationBarTitleText: '排行榜',
+    }
     data = {
         
     }
