@@ -12,9 +12,9 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/my',
       'pages/adopt',
-      'pages/home',
-      'pages/my' 
+      'pages/home'
     ],
     window: {
       backgroundTextStyle: 'light',
