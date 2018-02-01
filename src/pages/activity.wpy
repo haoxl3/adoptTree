@@ -1,0 +1,14 @@
+<template>
+    <view>activity</view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class Activity extends wepy.page {
+    data = {
+        
+    }
+}
+</script>
+<style lang="less">
+</style>

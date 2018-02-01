@@ -1,0 +1,14 @@
+<template>
+    <view>more tree</view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class myTree extends wepy.page {
+    data = {
+        
+    }
+}
+</script>
+<style lang="less">
+</style>

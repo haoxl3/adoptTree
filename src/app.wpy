@@ -17,7 +17,11 @@ export default class extends wepy.app {
     pages: [
       'pages/my',
       'pages/adopt',
-      'pages/home'
+      'pages/home',
+
+      'pages/rank',
+      'pages/activity',
+      'pages/tree'
     ],
     window: {
       backgroundTextStyle: 'light',

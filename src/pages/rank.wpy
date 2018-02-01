@@ -1,0 +1,14 @@
+<template>
+    <view>rank</view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class Rank extends wepy.page {
+    data = {
+        
+    }
+}
+</script>
+<style lang="less">
+</style>

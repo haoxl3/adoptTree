@@ -15,22 +15,28 @@
                 <text>领养</text>
             </view>
             <view class="nav-item">
-                <view class="nav-circle nav-rank">
-                    <i class="iconfont icon-rank"></i>
-                </view>
-                <text>排行榜</text>
+                <navigator url="/pages/rank">
+                    <view class="nav-circle nav-rank">
+                        <i class="iconfont icon-rank"></i>
+                    </view>
+                    <text>排行榜</text>
+                </navigator>
             </view>
             <view class="nav-item">
-                <view class="nav-circle nav-activity">
-                    <i class="iconfont icon-activity"></i>
-                </view>
-                <text>活动</text>
+                <navigator url="/pages/activity">
+                    <view class="nav-circle nav-activity">
+                        <i class="iconfont icon-activity"></i>
+                    </view>
+                    <text>活动</text>
+                </navigator>
             </view>
             <view class="nav-item">
-                <view class="nav-circle nav-in">
-                    <i class="iconfont icon-big-tree"></i>
-                </view>
-                <text>新入驻</text>
+                <navigator url="/pages/tree">
+                    <view class="nav-circle nav-in">
+                        <i class="iconfont icon-big-tree"></i>
+                    </view>
+                    <text>新入驻</text>
+                </navigator>
             </view>
         </view>
         <view class="content">
