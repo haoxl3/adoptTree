@@ -1,18 +1,158 @@
 <template>
-    <view>
-        <text>树木详情</text>
-        <button type="primary" bindtap="adoptTree">领养</button>
+    <view class="container">
+        <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="#fff" indicator-active-color="#60BA4E">
+            <block wx:for="{{tree.src}}" item="item" wx:key="key">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="tree-details">
+            <view class="tree-details-box">
+                <view>树名：{{tree.name}}</view>
+                <view>所在地：{{tree.address}}</view>
+                <view>树龄：{{tree.age}}</view>
+                <view>领养价格：￥{{tree.price}} 或 ￥{{tree.preferential}}</view>
+            </view>
+            <view class="tags">
+                <view class="tag {{tagColor[index%5]}}" wx:for="{{tree.tags}}" item="item" wx:key="key">{{item}}</view>
+            </view>
+            <mytitle :panelTitle="panelTitle"></mytitle>
+            <view class="tree-content">{{tree.info}}</view>
+        </view>
+        <button type="primary" bindtap="adoptTree" class="adopt-btn">领养</button>
     </view>
 </template>
 <script>
 import wepy from 'wepy';
+import myTitle from '../components/myTitle'
 
 export default class treeDetail extends wepy.page {
     config = {
-        navigationBarTitleText: '领养树',
+        navigationBarTitleText: '树木详情',
     }
     data = {
-        id: ''
+        id: '',
+        tagColor: ['','success','warning','info','danger'],
+        panelTitle: '树木简介',
+        indicatorDots: true,
+        autoplay: true,
+        interval: 3000,
+        duration: 1000,
+        trees:[
+            { 
+                id: 0,
+                src:['http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg','http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg','http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'],
+                name:'胡杨',
+                address: '北京市朝阳区地坛公园',
+                age: '100',
+                price: '199/年',
+                preferential: '39/月',
+                tags: ['生命力强','坚毅','耐旱','沙漠','长寿'],
+                info: '胡杨是被子植物门、双子叶植物纲、五桠果亚纲、杨柳目、杨柳科、杨属的一种植物，是落叶中型天然乔木，直径可达1.5米，木质纤细柔软，树叶阔大清香。耐旱耐涝，生命顽强，是自然界稀有的树种之一。胡杨树龄可达200年，树干通直，高10-15米，稀灌木状。树叶奇特，因生长在极旱荒漠区，为适应干旱环境，生长在幼树嫩枝上的叶片狭长如柳，大树老枝条上的叶却圆润如杨。'
+            }, {
+                id: 1,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'],
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '35',
+                price: '50/年',
+                preferential: '5/月',
+                tags: ['恩爱','爱与尊重','友好'],
+                info: '法国桐即悬铃木，俗称"法桐"，在植物分类学上属悬铃木科，科下仅有一属即悬铃木属，属下约7种，原产东南欧、印度及美洲。悬铃木喜光，喜湿润温暖气候，较耐寒。树木质紧密，纹理细腻。'
+            }, {
+                id: 2,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'],
+                name: '法国梧桐',
+                address: '北京市朝阳区地坛公园',
+                age: '123',
+                price: '88/年',
+                preferential: '45/月',
+                tags: ['高洁','美好','离别','思念','孤独'],
+                info: ''
+            }, {
+                id: 3,
+                src: ['http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg','http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'],
+                name: '桂花',
+                address: '北京市朝阳区地坛公园',
+                age: '80',
+                price: '80/年',
+                preferential: '40/月',
+                tags: ['耐高温','耐寒','高雅','荣誉','吉祥','忠贞'],
+                info: '桂花树又名木樨，为木樨科常绿乔木。桂花原产中国西南部喜马拉雅山东段，印度、尼泊尔也有。在中国有2500年以上的栽培历史，在黄河以南和广东的西南地区大量露地种植。'
+            }, {
+                id: 4,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'],
+                name: '白杨树',
+                address: '北京市朝阳区地坛公园',
+                age: '99',
+                price: '99/年',
+                preferential: '50/月',
+                tags: ['高大','挺直','顽强','倔强','不折不挠','力求上进'],
+                info: '银杏（学名：Ginkgo biloba L.），为银杏科、银杏属落叶乔木。银杏为落叶大乔木，胸径可达4米，幼树树皮近平滑，浅灰色，大树之皮灰褐色，不规则纵裂，粗糙；有长枝与生长缓慢的距状短枝。幼年及壮年树冠圆锥形，老则广卵形；枝近轮生，斜上伸展（雌株的大枝常较雄株开展）。叶互生，在长枝上辐射状散生，有细长的叶柄，扇形，两面淡绿色，无毛。在长枝上散生，在短枝上簇生。它的叶脉形式为“二歧状分叉叶脉”。在长枝上常2裂，基部宽楔形。球花雌雄异株，单性，生于短枝顶端的鳞片状叶的腋内，呈簇生状。4月开花，10月成熟，种子具长梗，下垂，常为椭圆形、长倒卵形、卵圆形或近圆球形。种皮肉质，被白粉，外种皮肉质，熟时黄色或橙黄色。'
+            }, {
+                id: 5,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'],
+                name: '银杏树',
+                address: '北京市朝阳区地坛公园',
+                age: '79',
+                price: '60/年',
+                preferential: '30/月',
+                tags: ['健康长寿','幸福吉祥','爱情','植物界熊猫'],
+                info: ''
+            }, {
+                id: 6,
+                src: ['http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'],
+                name: '柳树',
+                address: '北京市朝阳区地坛公园',
+                age: '92',
+                price: '80/年',
+                preferential: '20/月',
+                tags: ['情思缠绵','柔情','思乡','离别'],
+                info: '柳树是一类植物的总称：旱柳 Salix matsudana Koidz.、腺柳 Salix chaenomeloides Kimura、垂柳 Salix babylonica Linn.柳属多为灌木，稀乔木，无顶芽，合轴分枝，雄蕊数目较少，虫媒花等特征表明，较杨属与钻天柳属进化。'
+            }, {
+                id: 7,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'],
+                name: '香樟',
+                address: '北京市朝阳区地坛公园',
+                age: '300',
+                price: '299/年',
+                preferential: '99/月',
+                tags: ['辟邪','吉祥如意','长寿','幸福','和谐'],
+                info: '香樟是樟目、樟科、樟属常绿大乔木，高可达30米，直径可达3米，树冠广卵形；树冠广展，枝叶茂密，气势雄伟，是优良的绿化树、行道树及庭荫树。产中国南方及西南各省区。越南、朝鲜、日本也有分布，其他各国常有引种栽培。植物全体均有樟脑香气，可提制樟脑和提取樟油。木材坚硬美观，宜制家具、箱子。香樟树对氯气、二氧化硫、臭氧及氟气等有害气体具有抗性，能驱蚊蝇，能耐短期水淹，是生产樟脑的主要原料。材质上乘，是制造家具的好材料。'
+            }, {
+                id: 8,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'],
+                name: '罗汉松',
+                address: '北京市朝阳区地坛公园',
+                age: '58',
+                price: '60/年',
+                preferential: '30/月',
+                tags: ['富贵','吉祥','安康'],
+                info: '罗汉松（学名：Podocarpus macrophyllus (Thunb.) D. Don），别名土杉，罗汉松科，罗汉松属常绿针叶乔木，高达20米，胸径达60厘米；树皮灰色或灰褐色，浅纵裂，成薄片状脱落；枝开展或斜展，较密。叶螺旋状着生，条状披针形，微弯。雄球花穗状、腋生，基部有数枚三角状苞片；雌球花单生叶腋，有梗，基部有少数苞片。种子卵圆形，先端圆，熟时肉质假种皮紫黑色，有白粉，种托肉质圆柱形，红色或紫红色。花期4-5月，种子8-9月成熟。'
+            }, {
+                id: 9,
+                src: ['http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'],
+                name: '紫玉兰',
+                address: '北京市朝阳区地坛公园',
+                age: '81',
+                price: '90/年',
+                preferential: '20/月',
+                tags: ['芳香情思','俊郎仪态'],
+                info: '紫玉兰（学名：Magnolia liliiflora Desr.），木兰科木兰属，又名木兰、辛夷，为中国特有植物，分布在中国云南、福建、湖北、四川等地，生长于海拔300米至1,600米的地区，一般生长在山坡林缘。紫玉兰花朵艳丽怡人，芳香淡雅，孤植或丛植都很美观，树形婀娜，枝繁花茂，是优良的庭园、街道绿化植物，为中国有2000多年历史的传统花卉和中药。紫玉兰列入《世界自然保护联盟》（IUCN）ver 3.2：2009年植物红色名录。且不易移植和养护，是非常珍贵的花木。'
+            }, {
+                id: 10,
+                src: ['http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'],
+                name: '红枫',
+                address: '北京市朝阳区地坛公园',
+                age: '20',
+                price: '60/年',
+                preferential: '30/月',
+                tags: ['回忆','激情','奔放','思念'],
+                info: '红枫，拉丁学名为：Acer palmatum "Atropurpureum"，又名红颜枫，为槭树科鸡爪槭的变型，是落叶乔木，产于浙江，安徽，江苏，河南，江西，上海等地。红枫树高2—8米，枝条多细长光滑，偏紫红色。叶掌状，5-7深裂纹，直径5—10CM，裂片卵状披针形，先端尾状尖，缘有重锯齿。花顶生伞房花序，紫色。翅果，翅长2-3CM，两翅间成钝角。'
+            }
+        ],
+        tree: {}
     }
     methods = {
         adoptTree() {
@@ -23,9 +163,73 @@ export default class treeDetail extends wepy.page {
     }
     onLoad(option){
         this.id = option.id;
+        this.tree = this.trees[this.id];
         this.$apply();
+    }
+    components = {
+        mytitle: myTitle
     }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
+.container{
+    .swiper{
+        width: 100%;
+        height: 400rpx;
+    }
+    .swiper image{
+        width: 100%;
+        height: 100%;
+    }
+    .tree-details{
+        font-size: 28rpx;
+        view{
+            color: #666;
+        }
+        .tree-details-box{
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+        .tags{
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            .tag{
+                padding: 4px 10px;
+                border: 1px solid #ccc;
+                color: #ccc;
+                border-radius: 20px;
+                margin-bottom: 10px;
+                font-size: 24rpx;
+            }
+            .success{
+                border: 1px solid #60BA4E;
+                color: #60BA4E;
+            }
+            .info{
+                border: 1px solid #64BAF3;
+                color: #64BAF3;
+            }
+            .warning{
+                border: 1px solid #EEA95E;
+                color: #EEA95E;
+            }
+            .danger{
+                border: 1px solid #E8827E;
+                color: #E8827E;
+            }
+        }
+        .tree-content{
+            background-color: #fff;
+            padding: 10px;
+        }
+    }
+    .adopt-btn{
+        width: 80%;
+        margin: 20px auto;
+    }
+}
 </style>

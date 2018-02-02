@@ -24,4 +24,5 @@ export default class midTree extends wepy.page {
 }
 </script>
 <style lang="less">
+
 </style>

@@ -1,6 +1,5 @@
 <style lang="less">
 @import "./styles/base";
-// @import "./styles/icon";
 @import "./styles/icon";
 @import "./styles/style";
 page{
