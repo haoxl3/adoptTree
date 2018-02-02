@@ -1,5 +1,20 @@
 <template>
-    <view>rank</view>
+    <view class="container">
+        <view class="tabs">
+            <view class="tabs-header">
+                <view class="tab {{tabIndex == 0 ? 'tab-active':''}}" bindtap="tabsTap(0)">
+                    <view>活动</view>
+                </view>
+                <view class="tab {{tabIndex == 1 ? 'tab-active':''}}" bindtap="tabsTap(1)">
+                    <view>树木</view>
+                </view>
+            </view>
+            <view class="tabs-content">
+                <view class="tab-content" wx:if="{{tabIndex == 0}}">活动</view>
+                <view class="tab-content" wx:if="{{tabIndex == 1}}">树木</view>
+            </view>
+        </view>
+    </view>
 </template>
 <script>
 import wepy from 'wepy';
@@ -9,9 +24,39 @@ export default class Rank extends wepy.page {
         navigationBarTitleText: '排行榜',
     }
     data = {
-        
+       tabIndex: 0 
+    }
+    methods = {
+        tabsTap(index) {
+            this.tabIndex = index;
+            this.$apply();
+        }
     }
 }
 </script>
 <style lang="less">
+.tabs{
+    .tabs-header{
+        display: flex;
+        height: 80rpx;
+        background-color: #fff;
+        margin-bottom: 10px;
+        .tab{
+            flex: 1;
+            line-height: 80rpx;
+            font-size: 28rpx;
+            text-align: center;
+        }
+        .tab-active{
+            view{
+                width: 80rpx;
+                margin: 0 auto;
+                border-bottom: 2px solid #60BA4E;
+            }
+        }
+    }
+    .tabs-content{
+        background-color: #fff;
+    }
+}
 </style>

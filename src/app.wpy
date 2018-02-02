@@ -15,11 +15,11 @@ export default class extends wepy.app {
   config = {
     pages: [
       
+      'pages/rank',
       'pages/home',
       'pages/my',
       'pages/adopt',
 
-      'pages/rank',
       'pages/tree',
       'pages/activity',
       'pages/acDetail',
