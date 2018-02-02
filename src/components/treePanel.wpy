@@ -54,7 +54,7 @@ export default class tree extends wepy.component {
                 address: '北京市朝阳区地坛公园',
                 age: '35',
                 price: '50/年',
-                preferential: '5/月'，
+                preferential: '5/月',
                 tags: ['恩爱','爱与尊重','友好']
             }, {
                 id: 2,

@@ -40,6 +40,17 @@
                     <i class="iconfont icon-arrow-right"></i>
                 </view>
             </view>
+            <view class="menu-item clearfix">
+                <view class="float-left">
+                    <view class="menu-icon-circle integral-circle">
+                        <i class="iconfont icon-integral"></i>
+                    </view>
+                    <text>我的积分</text>
+                </view>
+                <view class="float-right">
+                    <i class="iconfont icon-arrow-right"></i>
+                </view>
+            </view>
         </view>
     </view>
 </template>
@@ -122,6 +133,9 @@ export default class My extends wepy.page {
         }
         .phone-circle{
             background-color: #E8827E;
+        }
+        .integral-circle{
+            background-color: #64BAF3;
         }
     }
 }

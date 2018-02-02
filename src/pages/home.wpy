@@ -33,9 +33,9 @@
             <view class="nav-item">
                 <navigator url="/pages/tree">
                     <view class="nav-circle nav-in">
-                        <i class="iconfont icon-doctor-hat"></i>
+                        <i class="iconfont icon-integral"></i>
                     </view>
-                    <text>科谱</text>
+                    <text>赚积分</text>
                 </navigator>
             </view>
         </view>
