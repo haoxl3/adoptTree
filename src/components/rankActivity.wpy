@@ -12,7 +12,9 @@
           <view><i class="iconfont icon-time"></i>时间：{{item.time}}</view>
           <view wx:if="{{item.price == 0}}"><i class="iconfont icon-tickets"></i>门票：免费</view>
           <view wx:else><i class="iconfont icon-tickets"></i>门票：￥{{item.price}}</view>
-          <view class="join rank-btn" wx:if="{{item.price !== 0}}">报名</view>
+          <view class="join rank-btn" wx:if="{{item.price !== 0}}">
+            <navigator url="/pages/acDetail?id={{item.id}}">报名</navigator>  
+          </view>
         </view>
       </view>
     </repeat>
@@ -57,7 +59,7 @@ export default class rankTempl extends wepy.component {
     }
     .img-box{
       width: 200rpx;
-      height: 200rpx;
+      height: 170rpx;
       margin-right: 10px;
       image{
         width: 100%;
