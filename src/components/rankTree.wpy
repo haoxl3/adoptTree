@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <repeat for="{{entity}}" item="item" key="index">
+    <repeat for="{{entity}}" item="item" key="index" wx:if="{{entity.length>0}}">
       <view class="box">
         <view class="img-box">
           <image src="{{item.url}}"/>
@@ -17,6 +17,10 @@
         </view>
       </view>
     </repeat>
+    <view wx:if="{{entity.length<=0}}" class="none-rank">
+        <i class="iconfont icon-big-tree"></i>
+        <view>暂无排行榜</view>
+    </view>
   </view>
 </template>
 <script>
@@ -39,67 +43,81 @@ export default class rankTree extends wepy.component {
 </script>
 <style lang="less" scoped>
 .container{
-  padding: 0 10rpx;
-  .box{
-    margin-bottom: 10px;
-    background-color: #fff;
-    padding: 10rpx;
-    display: flex;
-    font-size: 24rpx;
-    position: relative;
-    border-bottom-right-radius: 10px;
-    view{
-      color: #666;
-      overflow : hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-    }
-    .img-box{
-      width: 200rpx;
-      height: 170rpx;
-      margin-right: 10px;
-      image{
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .activity-text-box{
-      flex: 1;
-      i{
-        margin-right: 4px;
+    padding: 0 10rpx;
+    .box{
+        margin-bottom: 10px;
+        background-color: #fff;
+        padding: 10rpx;
+        display: flex;
         font-size: 24rpx;
-      }
-      .rank-btn{
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 120rpx;
-        height: 60rpx;
-        line-height: 60rpx;
-        text-align: center;
-        color: #fff;
-        background-color: #60BA4E;
-        border-top-left-radius: 10px;
+        position: relative;
         border-bottom-right-radius: 10px;
-      }
-      .icon-love{
-        color: #ff0000;
-      }
-      .icon-address{
-        color: #ddd;
-      }
-      .icon-user{
-        color: #E8827E;
-      }
-      .icon-big-tree{
-        color: #60BA4E;
-      }
-      .icon-tickets{
-        color: #64BAF3;
-      }
+        view{
+        color: #666;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        }
+        .img-box{
+        width: 200rpx;
+        height: 170rpx;
+        margin-right: 10px;
+        image{
+            width: 100%;
+            height: 100%;
+        }
+        }
+        .activity-text-box{
+        flex: 1;
+        i{
+            margin-right: 4px;
+            font-size: 24rpx;
+        }
+        .rank-btn{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 120rpx;
+            height: 60rpx;
+            line-height: 60rpx;
+            text-align: center;
+            color: #fff;
+            background-color: #60BA4E;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .icon-love{
+            color: #ff0000;
+        }
+        .icon-address{
+            color: #ddd;
+        }
+        .icon-user{
+            color: #E8827E;
+        }
+        .icon-big-tree{
+            color: #60BA4E;
+        }
+        .icon-tickets{
+            color: #64BAF3;
+        }
+        }
     }
-  }
+    .none-rank{
+        font-size: 28rpx;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        view,i{
+            color: #ccc;
+        }
+        i{
+            font-size: 100rpx;
+        }
+    }
 }
 </style>
