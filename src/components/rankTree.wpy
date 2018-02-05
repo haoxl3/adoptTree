@@ -1,0 +1,103 @@
+<template>
+  <view class="container">
+    <repeat for="{{entity}}" item="item" key="index">
+      <view class="box">
+        <view class="img-box">
+          <image src="{{item.url}}"/>
+        </view>
+        <view class="activity-text-box" wx:if="{{tab=='activity'}}">
+          <view><i class="iconfont icon-big-tree"></i>名称：{{item.name}}</view>
+          <view><i class="iconfont icon-address"></i>地址：{{item.address}}</view>
+          <view><i class="iconfont icon-love"></i>寓意：{{item.tags}}</view>
+          <view><i class="iconfont icon-tickets"></i>价格：{{item.price}}，{{item.preferential}}</view>
+          <view><i class="iconfont icon-user"></i>已领养：{{item.total}}棵</view>
+          <view class="join rank-btn" wx:if="{{item.price !== 0}}">领养</view>
+        </view>
+      </view>
+    </repeat>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class rankTree extends wepy.component {
+  data = {
+    
+  }
+  props = {
+    entity: {
+      type: Array,
+      default: []
+    },
+    tab: {
+      type: String,
+      default: ''
+    }
+  }
+} 
+</script>
+<style lang="less" scoped>
+.container{
+  padding: 0 10rpx;
+  .box{
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10rpx;
+    display: flex;
+    font-size: 24rpx;
+    position: relative;
+    border-bottom-right-radius: 10px;
+    view{
+      color: #666;
+      overflow : hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    .img-box{
+      width: 200rpx;
+      height: 200rpx;
+      margin-right: 10px;
+      image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .activity-text-box{
+      flex: 1;
+      i{
+        margin-right: 4px;
+        font-size: 24rpx;
+      }
+      .rank-btn{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 120rpx;
+        height: 60rpx;
+        line-height: 60rpx;
+        text-align: center;
+        color: #fff;
+        background-color: #60BA4E;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .icon-love{
+        color: #ff0000;
+      }
+      .icon-address{
+        color: #ddd;
+      }
+      .icon-user{
+        color: #E8827E;
+      }
+      .icon-big-tree{
+        color: #60BA4E;
+      }
+      .icon-tickets{
+        color: #64BAF3;
+      }
+    }
+  }
+}
+</style>

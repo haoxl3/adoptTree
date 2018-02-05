@@ -10,27 +10,168 @@
                 </view>
             </view>
             <view class="tabs-content">
-                <view class="tab-content" wx:if="{{tabIndex == 0}}">活动</view>
-                <view class="tab-content" wx:if="{{tabIndex == 1}}">树木</view>
+                <view class="tab-content" wx:if="{{tabIndex == 0}}">
+                    <rankactivity :entity="activities" :tab="tabName"></rankactivity>
+                </view>
+                <view class="tab-content" wx:if="{{tabIndex == 1}}">
+                    <ranktree :entity="trees" :tab="tabName"></ranktree>
+                </view>
             </view>
         </view>
     </view>
 </template>
 <script>
 import wepy from 'wepy';
+import rankActivity from '../components/rankActivity';
+import rankTree from '../components/rankTree';
 
 export default class Rank extends wepy.page {
     config = {
         navigationBarTitleText: '排行榜',
     }
     data = {
-       tabIndex: 0 
+        tabIndex: 0,
+        tabName: 'activity',
+        activities: [
+            {
+                id: 0,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '植树节',
+                address: '北京市朝阳区地坛公园',
+                intro:'树木是阻挡风沙的卫士，如果不想让世界成为沙漠，那么就植树吧!',
+                total: 305,
+                price: 10,
+                time: '2018.3.12'
+            },{
+                id: 1,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '儿童节野炊',
+                address: '北京颐和园公园',
+                intro:'挣脱喧嚣入山水,方知野炊味最美。火枫野营伴君行,游遍天下不思归。',
+                total: 288,
+                price: 0,
+                time: '2018.6.1'
+            },{
+                id: 2,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '圣诞节场地装扮party',
+                address: '北京市东城区天坛公园',
+                intro:'雪花盛开着温暖，人间弥漫着蜜甜，烟筒袅袅出炊烟，火炉暖暖着慵懒，花树散发着芬芳，顽童讨要着果糖，驯鹿跑出来健康，圣诞洋溢着吉祥。',
+                total: 256,
+                price: 20,
+                time: '2018.12.25'
+            },{
+                id: 3,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: 'DIY森林灯光节',
+                address: '北京陶然亭公园',
+                intro:'此次光雕艺术展，占地100余亩，使用40万只灯泡、3万米左右的LED光带搭建成“时光隧道”、“超凡视觉”、“空中水母”、“水晶鞋”、“大圣归来”等26组大型光雕作品，极富中国风格，极具民族风情，光影四射的七彩华丽灯艺雕塑如梦如幻，璀璨夺目。',
+                total: 120,
+                price: 80,
+                time: '2018.4.29'
+            },{
+                id: 4,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '爱护地球朗读赛',
+                address: '北京景山公园',
+                intro:'树给我们制造更多清新的氧气。树是我们的朋友。我希望大家都能爱护大树。树是我们的朋友。我希望大树和我们一起快乐成长。树是我们的朋友。我希望大家一起来种更多的树。树是我们的朋友。我希望大树可以给我们更多阴凉。',
+                total: 109,
+                price: 10,
+                time: '2018.4.22'
+            },{
+                id: 5,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '摄影爱好日',
+                address: '北京玉渊潭公园',
+                intro:'窗外的那棵树，是一棵饱经风沙的树;窗外的那棵树，是一棵不显眼的树;窗外的那棵树，是一棵努力汲取营养的书;窗外的那棵树，是一棵为希望而成长的树;窗外的那棵树，最终成为一棵生机勃勃，枝繁叶茂的树!',
+                total: 20,
+                price: 80,
+                time: '2018.8.19'
+            },{
+                id: 6,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: 'DIY婚纱摄影场景',
+                address: '北京植物园',
+                intro:'是不是想要自己的婚纱照别居一格？是不是对千篇一律的婚纱场地厌烦？是不是梦想自己是森林中自由起舞的花仙子？一起来DIY自己的婚纱外景场地吧！',
+                total: 20,
+                price: 100,
+                time: '2018.5.1~2018.10.30'
+            },
+        ],
+        trees: [
+            {
+                id: 0,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '胡杨',
+                address: '北京市朝阳区地坛公园',
+                age: '100',
+                total: 305,
+                price: '199/年',
+                preferential: '39/月',
+                tags: ['生命力强','坚毅','耐旱','沙漠','长寿'],
+            },{
+                id: 0,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '合欢树',
+                address: '北京市朝阳区地坛公园',
+                age: '35',
+                total: 305,
+                price: '50/年',
+                preferential: '5/月',
+                tags: ['恩爱','爱与尊重','友好'],
+            },{
+                id: 0,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '法国梧桐',
+                address: '北京市朝阳区地坛公园',
+                age: '123',
+                total: 305,
+                price: '88/年',
+                preferential: '45/月',
+                tags: ['高洁','美好','离别','思念','孤独'],
+            },{
+                id: 0,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '桂花',
+                address: '北京市朝阳区地坛公园',
+                age: '80',
+                total: 305,
+                price: '80/年',
+                preferential: '40/月',
+                tags: ['耐高温','耐寒','高雅','荣誉','吉祥','忠贞'],
+            },{
+                id: 0,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '白杨树',
+                address: '北京市朝阳区地坛公园',
+                age: '99',
+                total: 305,
+                price: '99/年',
+                preferential: '50/月',
+                tags: ['高大','挺直','顽强','倔强','不折不挠','力求上进'],
+            },{
+                id: 0,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+                name: '银杏树',
+                address: '北京市朝阳区地坛公园',
+                age: '79',
+                total: 305,
+                price: '60/年',
+                preferential: '30/月',
+                tags: ['健康长寿','幸福吉祥','爱情','植物界熊猫'],
+            }
+        ]
     }
     methods = {
         tabsTap(index) {
             this.tabIndex = index;
+            this.tabName = this.tabIndex == 0 ? 'activity' : 'tree';
             this.$apply();
         }
+    }
+    components = {
+        rankactivity: rankActivity,
+        ranktree: rankTree
     }
 }
 </script>
@@ -54,9 +195,6 @@ export default class Rank extends wepy.page {
                 border-bottom: 2px solid #60BA4E;
             }
         }
-    }
-    .tabs-content{
-        background-color: #fff;
     }
 }
 </style>
