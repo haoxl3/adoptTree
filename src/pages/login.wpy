@@ -1,0 +1,103 @@
+<template>
+    <view class="container">
+        <form bindsubmit="formSubmit">
+            <view class="view-item">
+                <i class="iconfont icon-tel"></i>
+                <input placeholder="请输入手机号"  bindinput="phoneHandler" class="phone" type="number" auto-focus/>
+            </view>
+            <view class="view-item">
+                <i class="iconfont icon-pwd"></i>
+                <input placeholder="请输入验证码" bindinput="codeHandler" type="number" class="pwd"/>
+                <view class="send">
+                    <text bindtap="sendCode" wx:if="{{sendMsgDisabled}}">发送验证码</text>
+                    <text wx:else="{{sendMsgDisabled}}">{{time+'秒后获取'}}</text>
+                </view>
+            </view>
+            <button class="complete" type="primary" formType="submit">提交</button>
+        </form>
+    </view>
+</template>
+<script>
+import wepy from 'wepy';
+export default class login extends wepy.page{
+    data = {
+        phoneVal: '',
+        pwdVal: '',
+        sendMsgDisabled: true,
+        time: 5
+    }
+    methods = {
+        phoneHandler(e){
+            this.phoneVal = e.detail.value;
+            console.log(this.phoneVal)
+        },
+        codeHandler(e){
+            this.pwdVal = e.detail.value;
+        },
+        formSubmit(e){
+            console.log(this.phoneVal);
+            console.log(this.pwdVal)
+        },
+        sendCode(e) {
+            console.log('click send')
+            if (this.phoneVal == "") {
+                // tip.alert("输入手机号码");
+                return false;
+            }
+            // this.sendVerifyCode();
+            let that = this;
+            that.sendMsgDisabled = !that.sendMsgDisabled;
+            let interval = setInterval(() => {
+                if ((that.time--) <= 1) {
+                    that.time = 10;
+                    that.sendMsgDisabled = !that.sendMsgDisabled;
+                    clearInterval(interval);
+                    that.$apply();
+                }
+                that.$apply();
+            }, 1000);
+        },
+    }
+}    
+</script>
+<style lang="less" scoped>
+.container{
+    background-color: #fff;
+    padding: 20px 30px;
+    .view-item{
+        position: relative;
+    }
+    i{
+        position: absolute;
+        top: 11px;
+        left: 16px;
+    }
+    input{
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        font-size: 28rpx;
+        margin-bottom: 20px;
+        padding-left: 40px;
+        box-sizing: border-box;
+    }
+    .pwd{
+        padding-right: 74px;
+    }
+    .send{
+        position: absolute;
+        top: 9px;
+        right: 22px;
+        font-size: 28rpx;
+        text{
+            color: #1AAD19;
+        }
+    }
+    .complete{
+        font-size: 28rpx;
+        border-radius: 20px;
+    }
+}
+</style>

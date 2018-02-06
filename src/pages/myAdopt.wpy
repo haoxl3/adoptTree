@@ -1,0 +1,12 @@
+<template>
+    <view>my adopt</view>
+</template>
+<script>
+import wepy from 'wepy';
+export default class myAdopt extends wepy.page{
+
+}
+</script>
+<style lang="less" scoped>
+
+</style>

@@ -8,26 +8,30 @@
         </view>
         <view class="menu-container">
             <view class="menu-item clearfix">
-                <view class="float-left">
-                    <view class="menu-icon-circle phone-circle">
-                        <i class="iconfont icon-phone"></i>
+                <navigator url="/pages/login">
+                    <view class="float-left">
+                        <view class="menu-icon-circle phone-circle">
+                            <i class="iconfont icon-phone"></i>
+                        </view>
+                        <text>绑定手机号</text>
                     </view>
-                    <text>绑定手机号</text>
-                </view>
-                <view class="float-right">
-                    <i class="iconfont icon-arrow-right"></i>
-                </view>
+                    <view class="float-right">
+                        <i class="iconfont icon-arrow-right"></i>
+                    </view>
+                </navigator>
             </view>
             <view class="menu-item clearfix">
-                <view class="float-left">
-                    <view class="menu-icon-circle">
-                        <i class="iconfont icon-small-tree"></i>
+                <navigator url="/pages/myAdopt">
+                    <view class="float-left">
+                        <view class="menu-icon-circle">
+                            <i class="iconfont icon-small-tree"></i>
+                        </view>
+                        <text>我的领养</text>
                     </view>
-                    <text>我的领养</text>
-                </view>
-                <view class="float-right">
-                    <i class="iconfont icon-arrow-right"></i>
-                </view>
+                    <view class="float-right">
+                        <i class="iconfont icon-arrow-right"></i>
+                    </view>
+                </navigator>
             </view>
             <view class="menu-item clearfix">
                 <navigator url="/pages/myActivity">
