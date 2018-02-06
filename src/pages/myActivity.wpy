@@ -1,0 +1,39 @@
+<template>
+    <activitytempl :activities="activities"></activitytempl>
+</template>
+<script>
+import wepy from 'wepy';
+import activityTempl from '../components/activityTempl';
+export default class myActivity extends wepy.page{
+    config = {
+        navigationBarTitleText: '我参与的活动',
+    }
+    data = {
+        activities: [
+            {
+                id: 0,
+                url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                name: '植树节',
+                address: '北京市朝阳区地坛公园',
+                intro:'树木是阻挡风沙的卫士，如果不想让世界成为沙漠，那么就植树吧!',
+                total: 305,
+                time: '2018.3.12'
+            },{
+                id: 1,
+                url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                name: '儿童节野炊',
+                address: '北京颐和园公园',
+                intro:'挣脱喧嚣入山水,方知野炊味最美。火枫野营伴君行,游遍天下不思归。',
+                total: 288,
+                time: '2018.6.1'
+            }
+        ]
+    }
+    components = {
+        activitytempl: activityTempl
+    }
+}
+</script>
+<style lang="less" scoped>
+
+</style>

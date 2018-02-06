@@ -15,8 +15,8 @@ export default class extends wepy.app {
   config = {
     pages: [
       
-      'pages/home',
       'pages/my',
+      'pages/home',
       'pages/adopt',
 
       'pages/tree',
@@ -25,6 +25,8 @@ export default class extends wepy.app {
       'pages/treeDetail',
       'pages/midTree',
       'pages/rank',
+
+      'pages/myActivity'
     ],
     window: {
       backgroundTextStyle: 'light',

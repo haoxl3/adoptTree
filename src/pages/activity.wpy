@@ -1,32 +1,15 @@
 <template>
-    <view class="container">
-        <repeat for="{{activities}}" item="item" key="index">
-            <navigator url="/pages/acDetail?id={{item.id}}">
-                <view class="activity-box flex-box">
-                    <view class="img-box" style="background-image:url('{{item.url}}')"></view>
-                    <view class="flex-right">
-                        <view class="activity-name"><i class="iconfont icon-balloon" style="color: {{ballColor[index%ballColor.length]}}"></i>{{item.name}}</view>
-                        <view class="activity-address"><i class="iconfont icon-address"></i>{{item.address}}</view>
-                        <view class="activity-info"><i class="iconfont icon-recentnewsfill"></i>{{item.intro}}</view>
-                        <view class="activity-bottom clearfix">
-                            <view class="float-left"><i class="iconfont icon-people"></i>{{item.total}}人</view>
-                            <view class="float-right time-box"><i class="iconfont icon-time"></i>{{item.time}}</view>
-                        </view>
-                    </view>
-                </view>
-            </navigator>
-        </repeat>
-    </view>
+    <activitytempl :activities="activities"></activitytempl>
 </template>
 <script>
 import wepy from 'wepy';
+import activityTempl from '../components/activityTempl';
 
 export default class Activity extends wepy.page {
     config = {
         navigationBarTitleText: '活动',
     }
     data = {
-        ballColor: ['#E8827E','#9A32CD','#006400','#CD0000','#EEEE00'],
         activities: [
             {
                 id: 0,
@@ -87,93 +70,11 @@ export default class Activity extends wepy.page {
             },
         ]
     }
+    components = {
+        activitytempl: activityTempl
+    }
 }
 </script>
 <style lang="less" scoped>
-.container{
-    padding: 10px 4px;
-    .activity-box{
-        margin-bottom: 10px;
-        border-radius: 3px;
-        padding: 10rpx;
-        font-size: 28rpx;
-        position: relative;
-    }
-    .img-box{
-        width: 200rpx;
-        height: 200rpx;
-        border-radius: 3px;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .flex-box{
-        background-color: #fff;
-        display: flex;
-    }
-    .flex-right{
-        flex: 1;
-        padding-left: 6rpx;
-        view{
-            color: #999;
-        }
-        i{
-            margin-right: 6rpx;
-        }
-    }
-    .activity-name,
-    .activity-address,
-    .activity-info,
-    .activity-bottom{
-        font-size: 24rpx;
-    }
-    .activity-name,
-    .activity-address{
-        overflow : hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-    .activity-info{
-        overflow : hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-    .activity-bottom{
-        margin-top: 2px;
-        view{
-            font-size: 20rpx;
-            color: #999;
-        }
-        .time-box{
-            text-align: right;
-        }
-    }
-    .icon-balloon{
-        color: pink;
-    }
-    .icon-address{
-        color: #ccc;
-    }
-    .icon-recentnewsfill{
-        color: #EEA95E;
-    }
-    .icon-people{
-        color: #E8827E;
-    }
-    .icon-time{
-        color: #60BA4E;
-    }
-    .float-left{
-        float: left;
-    }
-    .float-right{
-        float: right;
-    }
-    .clearfix{
-        overflow: hidden;
-    }
-}
+
 </style>

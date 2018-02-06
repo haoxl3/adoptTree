@@ -30,15 +30,17 @@
                 </view>
             </view>
             <view class="menu-item clearfix">
-                <view class="float-left">
-                    <view class="menu-icon-circle activity-circle">
-                        <i class="iconfont icon-recentnewsfill"></i>
+                <navigator url="/pages/myActivity">
+                    <view class="float-left">
+                        <view class="menu-icon-circle activity-circle">
+                            <i class="iconfont icon-recentnewsfill"></i>
+                        </view>
+                        <text>我参与的活动</text>
                     </view>
-                    <text>我参与的活动</text>
-                </view>
-                <view class="float-right">
-                    <i class="iconfont icon-arrow-right"></i>
-                </view>
+                    <view class="float-right">
+                        <i class="iconfont icon-arrow-right"></i>
+                    </view>
+                </navigator>
             </view>
             <view class="menu-item clearfix">
                 <view class="float-left">
