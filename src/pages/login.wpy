@@ -9,16 +9,18 @@
                 <i class="iconfont icon-pwd"></i>
                 <input placeholder="请输入验证码" bindinput="codeHandler" type="number" class="pwd"/>
                 <view class="send">
-                    <text bindtap="sendCode" wx:if="{{sendMsgDisabled}}">发送验证码</text>
+                    <text @tap="sendCode" wx:if="{{sendMsgDisabled}}">发送验证码</text>
                     <text wx:else="{{sendMsgDisabled}}">{{time+'秒后获取'}}</text>
                 </view>
             </view>
-            <button class="complete" type="primary" formType="submit">提交</button>
+            <button class="complete" type="primary" formType="submit" id="toast">提交</button>
         </form>
+        <toast/>
     </view>
 </template>
 <script>
 import wepy from 'wepy';
+import Toast from 'wepy-com-toast';
 export default class login extends wepy.page{
     data = {
         phoneVal: '',
@@ -41,7 +43,14 @@ export default class login extends wepy.page{
         sendCode(e) {
             console.log('click send')
             if (this.phoneVal == "") {
-                // tip.alert("输入手机号码");
+                let promise = this.$invoke('toast', 'show', {
+                    title: '请输入手机号',
+                    img: 'https://raw.githubusercontent.com/kiinlam/wetoast/master/images/star.png',
+                });
+
+                promise.then((d) => {
+                    console.log('toast done');
+                });
                 return false;
             }
             // this.sendVerifyCode();
@@ -57,6 +66,9 @@ export default class login extends wepy.page{
                 that.$apply();
             }, 1000);
         },
+    }
+    components = {
+        toast: Toast
     }
 }    
 </script>
@@ -98,6 +110,10 @@ export default class login extends wepy.page{
     .complete{
         font-size: 28rpx;
         border-radius: 20px;
+    }
+    view{
+        color: #fff;
+        font-size: 28rpx;
     }
 }
 </style>
