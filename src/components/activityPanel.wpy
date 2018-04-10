@@ -26,7 +26,7 @@ import myTitle from './myTitle'
 export default class activityPanel extends wepy.component {
     data = {
         ballColor: ['#E8827E','#9A32CD','#006400','#CD0000','#EEEE00'],
-        panelTitle: '活动推荐'
+        panelTitle: '推荐活动'
     } 
     props = {
         activity: {

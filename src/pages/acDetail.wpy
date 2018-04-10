@@ -10,7 +10,7 @@
                 <text wx:if="{{activity.price === 0}}">门票：免费</text>
                 <text wx:else>门票：￥{{activity.price}}</text>
             </view>
-            <view><text>地址：</text>{{activity.address}}</view>
+            <view @tap="addressHandler"><text>地址：</text>{{activity.address}}</view>
         </view>
         <button type="primary">报名</button>
     </view>
@@ -18,6 +18,9 @@
 <script>
 import wepy from 'wepy';
 export default class acDetail extends wepy.page{
+    config = {
+        navigationBarTitleText: '推荐活动'
+    }
     data = {
         activities: [
             {
@@ -85,11 +88,31 @@ export default class acDetail extends wepy.page{
                 time: '2018.5.1~2018.10.30'
             },
         ],
-        activity: {}
+        activity: {},
+        qqmapsdk: ''
     }
     onLoad(option) {
         this.activity = this.activities[option.id];
         this.$apply();
+    }
+    methods = {
+        addressHandler(){
+            console.log('进入方法')
+            wx.getLocation({
+                type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+                success: function(res) {
+                    var latitude = res.latitude
+                    var longitude = res.longitude
+                    wx.openLocation({
+                        latitude: latitude,
+                        longitude: longitude,
+                        scale: 28,
+                        name: 'test name',
+                        address: 'test address'
+                    })
+                }
+            })
+        }
     }
 }  
 </script>

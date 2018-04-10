@@ -44,7 +44,7 @@
             <view class="form-title">挂牌清单</view>
             <view class="form-item">
                 <label>领养者：</label>
-                <input class="line-block" placeholder="请输入..." auto-focus/>
+                <input class="line-block" placeholder="请输入..."/>
             </view>
             <view class="form-item">
                 <label>领养时间：</label>
